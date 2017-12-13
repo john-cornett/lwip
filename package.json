@@ -1,6 +1,6 @@
 {
   "name": "lwip",
-  "version": "0.2.0",
+  "version": "0.0.10",
   "main": "index.js",
   "dependencies": {
     "async": "^2.0.0-rc.5",
@@ -29,7 +29,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Pajk/lwip.git"
+    "url": "https://github.com/john-cornett/lwip.git"
   },
   "keywords": [
     "image",
