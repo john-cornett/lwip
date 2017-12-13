@@ -38,6 +38,7 @@ public:
     static NAN_METHOD(pad);
     static NAN_METHOD(sharpen);
     static NAN_METHOD(hslaAdj);
+    static NAN_METHOD(darken);
     static NAN_METHOD(opacify);
     static NAN_METHOD(paste);
     static NAN_METHOD(width);
@@ -209,6 +210,21 @@ private:
     float _sd;
     float _ld;
     float _ad;
+    CImg<unsigned char> * _cimg;
+};
+
+class DarkenWorker : public Nan::AsyncWorker {
+public:
+    DarkenWorker(
+        float ld,
+        CImg<unsigned char> * cimg,
+        Nan::Callback * callback
+    );
+    ~DarkenWorker();
+    void Execute ();
+    void HandleOKCallback ();
+private:
+    float _ld;
     CImg<unsigned char> * _cimg;
 };
 

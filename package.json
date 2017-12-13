@@ -1,12 +1,12 @@
 {
   "name": "lwip",
-  "version": "0.0.9",
+  "version": "0.2.0",
   "main": "index.js",
   "dependencies": {
     "async": "^2.0.0-rc.5",
     "bindings": "^1.2.1",
     "decree": "0.0.6",
-    "nan": "^2.3.2"
+    "nan": "^2.5.1"
   },
   "scripts": {
     "install": "node-gyp rebuild",
@@ -15,7 +15,7 @@
     "travis": "./node_modules/.bin/istanbul cover --report lcovonly ./node_modules/.bin/_mocha -- --opts tests/mocha.opts --bail tests && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "gypfile": true,
-  "description": "Comprehensive, fast, and simple image processing and manipulation",
+  "description": "Fork with fixed darken and blur. Comprehensive, fast, and simple image processing and manipulation",
   "directories": {
     "example": "examples"
   },
@@ -29,7 +29,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/EyalAr/lwip.git"
+    "url": "https://github.com/Pajk/lwip.git"
   },
   "keywords": [
     "image",
@@ -60,6 +60,12 @@
     "opacity",
     "contain",
     "cover"
+  ],
+  "contributors": [
+    {
+      "name": "Pavel Pokorny",
+      "email": "<pajkycz@gmail.com>"
+    }
   ],
   "author": "Eyal Arubas <eyalarubas@gmail.com>",
   "license": "MIT",

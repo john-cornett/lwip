@@ -19,6 +19,7 @@ void LwipImage::Init(Handle<Object> exports) {
     Nan::SetPrototypeMethod(tpl, "pad", pad);
     Nan::SetPrototypeMethod(tpl, "sharpen", sharpen);
     Nan::SetPrototypeMethod(tpl, "hslaAdj", hslaAdj);
+    Nan::SetPrototypeMethod(tpl, "darken", darken);
     Nan::SetPrototypeMethod(tpl, "opacify", opacify);
     Nan::SetPrototypeMethod(tpl, "paste", paste);
     Nan::SetPrototypeMethod(tpl, "setPixel", setPixel);
@@ -339,6 +340,29 @@ NAN_METHOD(LwipImage::hslaAdj) {
             sd,
             ld,
             ad,
+            cimg,
+            callback
+        )
+    );
+
+    return;
+}
+
+// image.darken(ld, callback):
+// ------------------------------------
+
+// info[0] - lightness delta
+// info[1] - callback
+NAN_METHOD(LwipImage::darken) {
+    Nan::HandleScope();
+
+    float ld = (float) info[0].As<Number>()->Value();
+    Nan::Callback * callback = new Nan::Callback(info[1].As<Function>());
+    CImg<unsigned char> * cimg = ObjectWrap::Unwrap<LwipImage>(info.This())->_cimg;
+
+    Nan::AsyncQueueWorker(
+        new DarkenWorker(
+            ld,
             cimg,
             callback
         )

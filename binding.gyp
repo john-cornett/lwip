@@ -74,6 +74,7 @@
             "src/lib/gif/dgif_lib.c",
             "src/lib/gif/gif_err.c",
             "src/lib/gif/gifalloc.c",
+            "src/lib/gif/openbsd-reallocarray.c",
         ],
         'include_dirs': [
             '<!(node -e "require(\'nan\')")',
@@ -188,7 +189,8 @@
             "src/lib/gif/gif_err.c",
             "src/lib/gif/gifalloc.c",
             "src/lib/gif/gif_hash.c",
-            "src/lib/gif/quantize.c"
+            "src/lib/gif/quantize.c",
+            "src/lib/gif/openbsd-reallocarray.c",
         ],
         'include_dirs': [
             '<!(node -e "require(\'nan\')")',
@@ -249,6 +251,7 @@
             "src/image/pad_worker.cpp",
             "src/image/sharpen_worker.cpp",
             "src/image/hsla_worker.cpp",
+            "src/image/darken_worker.cpp",
             "src/image/opacify_worker.cpp",
             "src/image/paste_worker.cpp",
             "src/image/setpixel_worker.cpp",
